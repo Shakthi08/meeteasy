@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // elevation: 0,
+        elevation: 0,
         title: const Text("Meet & Chat"),
         backgroundColor: backgroundColor,
       ),
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
         data: NavigationBarThemeData(
             indicatorColor: Color.fromARGB(255, 255, 203, 34),
             labelTextStyle: MaterialStateProperty.all(
-              TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
             )),
         child: NavigationBar(
           onDestinationSelected: onPageChanged,
