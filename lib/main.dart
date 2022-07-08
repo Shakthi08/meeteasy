@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meeteasy/screens/home_screen.dart';
 import 'package:meeteasy/screens/login_screen.dart';
+import 'package:meeteasy/screens/video_call_screen.dart';
 import 'package:meeteasy/utils/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:meeteasy/resources/auth_methods.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/login': (context) => const LoginScreen(),
           '/home': (context) => const HomeScreen(),
+          '/video-call': (context) => const VideoCallScreen(),
         },
         home: StreamBuilder(
           stream: AuthMethods().authChanges,
