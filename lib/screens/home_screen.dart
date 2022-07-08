@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:meeteasy/screens/meeting_screen.dart';
+import 'package:meeteasy/screens/history_meeting_screen.dart';
 import 'package:meeteasy/utils/colors.dart';
 import 'package:meeteasy/widgets/homeMeetingButton.dart';
 
@@ -22,6 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  List<Widget> pages = [
+    MeetingScreen(),
+    const HistoryMeetingScreen(),
+    Text("Contacts"),
+    Text("Settings"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,43 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text("Meet & Chat"),
         backgroundColor: backgroundColor,
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              HomeMeetingButton(
-                onPressed: () {},
-                text: 'New meeting',
-                icon: Icons.videocam,
-              ),
-              HomeMeetingButton(
-                onPressed: () {},
-                text: 'Join meeting',
-                icon: Icons.add_box_rounded,
-              ),
-              HomeMeetingButton(
-                onPressed: () {},
-                text: 'Schedule meeting',
-                icon: Icons.calendar_today,
-              ),
-              HomeMeetingButton(
-                onPressed: () {},
-                text: 'Share screen',
-                icon: Icons.arrow_upward_rounded,
-              )
-            ],
-          ),
-          const Expanded(
-            child: Center(
-              child: Text(
-                'Create or join a meeting',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: pages[_page],
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
             indicatorColor: Color.fromARGB(255, 255, 203, 34),
@@ -83,10 +56,12 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               icon: Icon(
                 Icons.comment_bank_outlined,
+                size: 25,
                 color: Color.fromARGB(255, 255, 203, 34),
               ),
               selectedIcon: Icon(
                 Icons.comment_bank,
+                size: 25,
                 color: Colors.white,
               ),
               label: 'Meet and chat',
@@ -94,11 +69,12 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               icon: Icon(
                 Icons.lock_clock,
-                size: 30,
+                size: 25,
                 color: Color.fromARGB(255, 255, 203, 34),
               ),
               selectedIcon: Icon(
                 Icons.lock_clock,
+                size: 25,
                 color: Colors.white,
               ),
               label: 'Meetings',
@@ -106,11 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               icon: Icon(
                 Icons.person_outline,
-                size: 30,
+                size: 25,
                 color: Color.fromARGB(255, 255, 203, 34),
               ),
               selectedIcon: Icon(
                 Icons.person,
+                size: 25,
                 color: Colors.white,
               ),
               label: 'Contacts',
@@ -118,11 +95,12 @@ class _HomeScreenState extends State<HomeScreen> {
             NavigationDestination(
               icon: Icon(
                 Icons.settings_outlined,
-                size: 30,
+                size: 25,
                 color: Color.fromARGB(255, 255, 203, 34),
               ),
               selectedIcon: Icon(
                 Icons.settings,
+                size: 25,
                 color: Colors.white,
               ),
               label: 'Settings',

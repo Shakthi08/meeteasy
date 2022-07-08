@@ -25,7 +25,7 @@ class HomeMeetingButton extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             color: buttonColor,
-            borderRadius: BorderRadius.circular(16.0),
+            borderRadius: BorderRadius.circular(13.0),
             boxShadow: [
               BoxShadow(
                 blurRadius: 10,
@@ -43,7 +43,7 @@ class HomeMeetingButton extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        Text(text, style: TextStyle(color: Colors.grey)),
+        Text(text, style: TextStyle(color: Colors.grey, fontSize: 12)),
       ]),
     );
   }
