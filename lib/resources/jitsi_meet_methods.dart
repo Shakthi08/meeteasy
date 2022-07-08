@@ -1,9 +1,11 @@
 import 'package:jitsi_meet/feature_flag/feature_flag.dart';
 import 'package:jitsi_meet/jitsi_meet.dart';
 import 'package:meeteasy/resources/auth_methods.dart';
+import 'package:meeteasy/resources/firestore_resource.dart';
 
 class JitsiMeetMethod {
   final AuthMethods _authMethods = AuthMethods();
+  final FirestoreMethods _firestoreMethods = FirestoreMethods();
 
   void createMeeting(
       {required String roomName,
@@ -28,6 +30,8 @@ class JitsiMeetMethod {
         ..userAvatarURL = _authMethods.user.photoURL
         ..audioMuted = isAudioMuted
         ..videoMuted = isVideoMuted;
+
+      _firestoreMethods.addToMeetingHistory(roomName);
 
       await JitsiMeet.joinMeeting(options);
     } catch (error) {
