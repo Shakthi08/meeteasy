@@ -4,9 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:meeteasy/resources/auth_methods.dart';
 import 'package:meeteasy/screens/meeting_screen.dart';
 import 'package:meeteasy/screens/history_meeting_screen.dart';
 import 'package:meeteasy/utils/colors.dart';
+import 'package:meeteasy/widgets/custom_button.dart';
 import 'package:meeteasy/widgets/homeMeetingButton.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,7 +30,31 @@ class _HomeScreenState extends State<HomeScreen> {
     MeetingScreen(),
     const HistoryMeetingScreen(),
     Text("Contacts"),
-    Text("Settings"),
+    Padding(
+      padding: EdgeInsets.only(left: 20, right: 20),
+      child: ElevatedButton(
+        onPressed: () => AuthMethods().signout(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Sign out",
+              style: const TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ],
+        ),
+        style: ElevatedButton.styleFrom(
+            primary: buttonColor,
+            alignment: Alignment.centerLeft,
+            minimumSize: const Size(double.infinity, 50),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+              side: const BorderSide(color: buttonColor),
+            )),
+      ),
+    ),
   ];
 
   @override
